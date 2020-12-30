@@ -38,7 +38,6 @@ else:
     EMAIL_USE_TLS = True
     DEFAULT_FROM_EMAIL = 'Artists Forum NITK <noreply@artistforum>'
 
-
 ALLOWED_HOSTS = []
 
 
