@@ -80,9 +80,9 @@ $ python3 manage.py migrate
 $ python3 manage.py runserver
 ```
 - Now enter `localhost:8000` in the browser.
-- Create your Feature Branch (git checkout -b feature/AmazingFeature)
-- Commit your Changes (git commit -m 'Add some AmazingFeature')
-- Push to the Branch (git push origin feature/AmazingFeature)
+- Create your Feature Branch `git checkout -b feature/AmazingFeature`
+- Commit your Changes `git commit -m 'Add some AmazingFeature'`
+- Push to the Branch `git push origin feature/AmazingFeature`
 - Open a Pull Request for further Reviews and suggestions.
 
 
