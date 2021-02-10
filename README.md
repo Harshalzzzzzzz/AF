@@ -53,17 +53,21 @@ The Model-View-Template (MVT) is slightly different from MVC. In fact the main d
 - Volunteer
 - Registration
 
-## Functionalities to be Implemented
+## Functionalities 
 
 - The content in terms of team members' data, images, events, artworks, blog content,etc. can be uploaded via the admin dashboard by the superadmin or the user with admin permissions.
 
-- ModelViewer HTML tag- <modelviewer> can been used in order to display the 3D models that are uploaded as .glb or .gltf files.
-
-- There are appropriate filters in place for the content that is to be displayed on various pages. 
-
-- A mailer can be implemented for the users to get latest updates via email.
+- Appropriate filters in place for the content that is to be displayed on various pages. 
 
 - Dislaying Images corresponding to the events, blogs or Artworks in various sections on the website pages.
+
+- User Account Management interface for recruitments, volunteers and registrations for the club and club events/projects.
+
+- Improved UI/UX with a better theme and template.
+
+- Image Compression for files with a larger size, while preserving the quality/resolution.
+
+- Mailer for the users to get latest updates via email, and for other relevant actions.
 
 - Further implemented features to be based on the requirements specified by the core members.
 
