@@ -16,7 +16,7 @@
     <a href="http://example.com/"><strong>  Artists' Forum Website »</strong></a>
     <br>
     <br>
-    <a href="http://137.116.134.135:8000/">View Demo</a>
+    <a href="https://af.nitk.ac.in/">Website Link</a>
     ·
     <a href="issues-url">Report Bug</a>
     ·
