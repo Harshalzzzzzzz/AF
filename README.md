@@ -54,6 +54,7 @@
 - Fork the Project and Clone it locally,
 - Run the following commands in you teminal:
 ```
+$ pip install -r requirements.txt
 $ python3 manage.py makemigrations
 $ python3 manage.py migrate
 $ python3 manage.py runserver
