@@ -8,6 +8,7 @@ from PIL import Image
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.validators import MaxValueValidator, MinValueValidator
+from ckeditor.fields import RichTextField
 
 utc=pytz.UTC
 
@@ -164,7 +165,7 @@ class Blog(models.Model):
     blog_filter = models.IntegerField(default=0)
     author = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='blog_posts')
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = RichTextField(blank = True, null = True)
     created_on = models.DateTimeField(auto_now_add=True)
     blog_img = models.ImageField(upload_to='images/blog')
     def save(self, *args, **kwargs):
