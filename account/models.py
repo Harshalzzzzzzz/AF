@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.core.validators import RegexValidator
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
@@ -27,22 +27,19 @@ class MyAccountManager(BaseUserManager):
             username = username,
         )
     
-        user.is_admin = True
-        user.is_staff = True
         user.is_superuser = True
+        user.is_staff = True
         user.save(using=self._db)
         return user
             
 
-class Account(AbstractBaseUser):
+class Account(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
     username = models.CharField(verbose_name='name', max_length=50, null=False)
     date_joined	= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
-    is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
     is_recruitment_applicant = models.BooleanField(default=False)
 
     objects = MyAccountManager()
@@ -52,10 +49,25 @@ class Account(AbstractBaseUser):
     def __str__(self):
         return self.email
     
+    # def get_username(self) -> str:
+    #     return self.username
+    def get_short_name(self):
+        return self.username
     # For checking permissions. to keep it simple all admin have ALL permissons
     def has_perm(self, perm, obj=None):
-        return self.is_admin
+        if self.is_active and self.is_superuser:
+            return True
+        permissions = self.get_all_permissions()
+        if perm in permissions:
+            return True
+        return False
 
+    def has_perms(self, perm_list, obj=None):
+        """
+        Return True if the user has each of the specified permissions. If
+        object is passed, check if the user has all required perms for it.
+        """
+        return all(self.has_perm(perm, obj) for perm in perm_list)
     # Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
     def has_module_perms(self, app_label):
         return True
