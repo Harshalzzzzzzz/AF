@@ -24,7 +24,7 @@ class RecruitmentDetails(admin.ModelAdmin):
     export_as_csv.short_description = 'Export Selected'
 
 class AccountDetails(UserAdmin):
-    list_display = ('username', 'email', 'is_recruitment_applicant', 'is_admin')
+    list_display = ('username', 'email', 'is_recruitment_applicant', 'is_superuser')
     list_filter = ('is_recruitment_applicant', )
     filter_horizontal = ()
     fieldsets = ()
