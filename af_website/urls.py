@@ -6,6 +6,10 @@ from django.contrib.auth import views as auth_views
 from account.views import *
 from mysite import views
 from account.templates import *
+
+admin.site.site_title = "Artists' Forum Administrator"
+admin.site.index_title = "Admin Dashboard"
+admin.site.site_header = "Artists' Forum Administrator"
 urlpatterns = [
     #account urls
     path('register/', registration_view, name = 'register'),
